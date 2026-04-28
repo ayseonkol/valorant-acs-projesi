@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Valorant ACS Tahmincisi</title>
+</head>
+<body style="text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-top: 50px; background-color: #f4f4f9;">
+
+    <h1 style="color: #ff4655;">Valorant 2026 - ACS Tahmin Modeli</h1>
+    <p>İstatistiklerini gir, modelimiz Çatışma Skorunu (ACS) tahmin etsin!</p>
+
+    <div style="background: white; display: inline-block; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        <form action="/tahmin" method="POST">
+            <label><b>Tur Başına Ortalama Hasar (ADR):</b></label><br>
+            <input type="text" name="adr" required placeholder="Örn: 150.5" style="margin: 10px; padding: 5px;"><br>
+
+            <label><b>Tur Başına Öldürme (KPR):</b></label><br>
+            <input type="text" name="kpr" required placeholder="Örn: 0.8" style="margin: 10px; padding: 5px;"><br>
+
+            <label><b>Kafadan Vuruş (Headshot) %:</b></label><br>
+            <input type="text" name="hs" required placeholder="Örn: 25.0" style="margin: 10px; padding: 5px;"><br>
+
+            <label><b>KAST % (Öldürme, Asist, Hayatta Kalma, Trade):</b></label><br>
+            <input type="text" name="kast" required placeholder="Örn: 75.0" style="margin: 10px; padding: 5px;"><br><br>
+
+            <button type="submit" style="background-color: #ff4655; color: white; border: none; padding: 10px 25px; font-size: 16px; border-radius: 5px; cursor: pointer;">
+                Tahmin Et
+            </button>
+        </form>
+    </div>
+
+    <h2 style="color: #0f1923; margin-top: 30px;">
+        {% if tahmin_sonucu %}
+            {{ tahmin_sonucu }}
+        {% endif %}
+    </h2>
+
+</body>
+</html>
